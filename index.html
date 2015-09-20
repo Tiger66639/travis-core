@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Travis-core by Tiger66639</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/Tiger66639/travis-core">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/Tiger66639/travis-core/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/Tiger66639/travis-core/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Travis-core</h1>
+          <p>Models and classes shared by Travis CI api, hub and gatekeeper</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/Tiger66639">Tiger66639</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="travis-core" class="anchor" href="#travis-core" aria-hidden="true"><span class="octicon octicon-link"></span></a>travis-core</h1>
+
+<p><a href="https://travis-ci.org/Tiger66639/travis-core"><img src="https://travis-ci.org/Tiger66639/travis-core.svg" alt="Build Status"></a></p>
+
+<p>Travis Core (or travis-core) contains shared code among different Travis CI applications.</p>
+
+<p>See the <a href="lib/travis">README in lib/travis</a> for more information on the structure of the repository.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Travis Core requires PostgreSQL 9.3 or higher, as well as a recent version of Redis and RabbitMQ.</p>
+
+<h3>
+<a id="repository-setup" class="anchor" href="#repository-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repository setup</h3>
+
+<ol>
+<li>Clone the repository: <code>git clone https://github.com/travis-ci/travis-core.git</code>
+</li>
+<li>Install gem dependencies: <code>cd travis-core; bundle install --binstubs --path=vendor/gems</code>
+</li>
+<li>Set up the database: <code>bin/rake db:create db:structure:load</code>
+</li>
+<li>Link the <code>logs</code> table migration to the proper place and perform DB migration:</li>
+</ol>
+
+<div class="highlight highlight-text-shell-session"><pre><span class="pl-mo">pushd db/migrate</span>
+<span class="pl-mo">ln -svf ../../spec/migrations/*</span>
+<span class="pl-mo">popd</span>
+<span class="pl-mo">bin/rake db:migrate</span>
+<span class="pl-mo">git checkout -- db/structure.sql</span></pre></div>
+
+<p>Repeat the database steps for <code>RAILS_ENV=test</code>.</p>
+
+<div class="highlight highlight-text-shell-session"><pre><span class="pl-mo">RAILS_ENV=test bin/rake db:create db:structure:load</span>
+<span class="pl-mo">RAILS_ENV=test bin/rake db:migrate</span>
+<span class="pl-mo">git checkout -- db/structure.sql</span></pre></div>
+
+<h3>
+<a id="running-tests" class="anchor" href="#running-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running tests</h3>
+
+<p>To run the RSpec tests, first make sure PostgreSQL, Redis and
+RabbitMQ are running, then do:</p>
+
+<pre><code>./build.sh
+</code></pre>
+
+<p>Individual specs can be run with <code>bin/rspec</code>; e.g.,</p>
+
+<pre><code>bundle exec rspec spec/travis/model/job_spec.rb
+</code></pre>
+
+<h3>
+<a id="submitting-patches" class="anchor" href="#submitting-patches" aria-hidden="true"><span class="octicon octicon-link"></span></a>Submitting patches</h3>
+
+<p>Please fork the repository and submit a pull request. For larger changes, please open a ticket on our <a href="https://github.com/travis-ci/travis-ci/issues">main issue tracker</a> first.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

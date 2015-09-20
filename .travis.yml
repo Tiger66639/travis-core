@@ -8,6 +8,9 @@ env:
 services:
   - redis
 addons:
+    code_climate:
+        repo_token: 9fe4bb72d7e5d1dfe426d0a9e094f46ef71c33032be6111bcd1432c7bc774148
+addons:
   code_climate:
     repo_token: adf08323...
 addons:

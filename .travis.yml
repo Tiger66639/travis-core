@@ -7,7 +7,9 @@ env:
 
 services:
   - redis
-
+addons:
+  code_climate:
+    repo_token: adf08323...
 addons:
   postgresql: 9.3
   artifacts:

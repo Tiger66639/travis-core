@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gemspec
-
+gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'travis-support',     github: 'travis-ci/travis-support'
 gem 'travis-sidekiqs',    github: 'travis-ci/travis-sidekiqs', require: nil
 gem 'gh',                 github: 'travis-ci/gh'

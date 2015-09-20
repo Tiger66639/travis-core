@@ -1,7 +1,7 @@
 # travis-core
 
 [![Build Status](https://travis-ci.org/Tiger66639/travis-core.svg)](https://travis-ci.org/Tiger66639/travis-core)
-
+[![Code Climate](https://codeclimate.com/repos/55feea5be30ba05c0400fb3a/badges/5d9858119d6a2a88d233/gpa.svg)](https://codeclimate.com/repos/55feea5be30ba05c0400fb3a/feed)
 Travis Core (or travis-core) contains shared code among different Travis CI applications.
 
 See the [README in lib/travis](lib/travis) for more information on the structure of the repository.
